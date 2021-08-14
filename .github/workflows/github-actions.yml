@@ -1,0 +1,16 @@
+name: juce-utils Actions
+on: [push]
+jobs:
+  Package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: |
+          py -m pip install --upgrade pip
+          py -m pip install --upgrade build
+          py -m build
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package-artifacts
+          path: dist/*
