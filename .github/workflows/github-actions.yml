@@ -6,9 +6,9 @@ jobs:
     steps:
       - name: Build
         run: |
-          py -m pip install --upgrade pip
-          py -m pip install --upgrade build
-          py -m build
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade build
+          python -m build
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
